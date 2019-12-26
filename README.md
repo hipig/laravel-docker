@@ -12,8 +12,8 @@
 ## 安装
 
 ``` shell
-$ docker-compose run --rm --no-deps blog-server composer install
-$ docker-compose run --rm --no-deps blog-server php artisan key:generate
-$ docker-compose run --rm --no-deps blog-server php artisan storage:link
+$ docker-compose run --rm --no-deps app composer install
+$ docker-compose run --rm --no-deps app php artisan key:generate
+$ docker-compose run --rm --no-deps app php artisan storage:link
 $ docker-compose up -d
 ```
