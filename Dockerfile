@@ -58,13 +58,17 @@ RUN docker-php-ext-install \
     zip \
     bcmath
 
+# 修改 npm yarn 加速镜像
+RUN npm config set registry=https://registry.npm.taobao.org \
+    && yarn config set registry https://registry.npm.taobao.org
+
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer
 
 # 修改 composer 为国内镜像
 RUN composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/
 
-# Installing prestissimo
+# Installing prestissimo composer并行下载插件
 RUN composer global require "hirak/prestissimo"
 
 # Cleanup dev dependencies
